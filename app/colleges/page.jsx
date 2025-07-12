@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 
 import { useState } from "react"
 import { Search, Star, Calendar, BookOpen, MapPin } from "lucide-react"
@@ -79,7 +79,7 @@ export default function CollegesPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [filteredColleges, setFilteredColleges] = useState(allColleges)
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = (e) => {
     e.preventDefault()
     const filtered = allColleges.filter(
       (college) =>

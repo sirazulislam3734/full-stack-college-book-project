@@ -47,10 +47,6 @@ const handler = NextAuth({
         return null
       },
     }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
   ],
   pages: {
     signIn: "/login",
@@ -68,7 +64,7 @@ const handler = NextAuth({
     },
     async session({ session, token }) {
       if (token) {
-        session.user.id = token.id as string
+        session.user.id = token.id
       }
       return session
     },

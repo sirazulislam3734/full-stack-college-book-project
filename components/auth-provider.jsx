@@ -1,24 +1,9 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import { createContext, useContext, useState, useEffect, ReactNode } from "react"
 
-interface User {
-  id: string
-  name: string
-  email: string
-  avatar?: string
-  role: "user" | "admin"
-}
 
-interface AuthContextType {
-  user: User | null
-  login: (email: string, password: string) => Promise<boolean>
-  logout: () => void
-  register: (name: string, email: string, password: string) => Promise<boolean>
-  isLoading: boolean
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined)
+const AuthContext = createContext(undefined)
 
 // Mock users for testing
 const mockUsers = [
@@ -28,7 +13,7 @@ const mockUsers = [
     email: "admin@collegebook.com",
     password: "admin123",
     avatar: "https://i.ibb.co/QXvTMzp/user1.jpg",
-    role: "admin" as const,
+    role: "admin",
   },
   {
     id: "2",
@@ -36,12 +21,12 @@ const mockUsers = [
     email: "user@collegebook.com",
     password: "user123",
     avatar: "https://i.ibb.co/7XzQzKp/user2.jpg",
-    role: "user" as const,
+    role: "user",
   },
 ]
 
-export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null)
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -53,7 +38,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setIsLoading(false)
   }, [])
 
-  const login = async (email: string, password: string): Promise<boolean> => {
+  const login = async (email, password) => {
     setIsLoading(true)
 
     // Simulate API call delay
@@ -73,7 +58,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return false
   }
 
-  const register = async (name: string, email: string, password: string): Promise<boolean> => {
+  const register = async (name, email, password) => {
     setIsLoading(true)
 
     // Simulate API call delay
@@ -92,7 +77,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       name,
       email,
       avatar: "https://i.ibb.co/k8YzQzK/user3.jpg",
-      role: "user" as const,
+      role: "user",
     }
 
     setUser(newUser)

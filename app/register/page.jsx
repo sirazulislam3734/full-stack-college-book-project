@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 
 import { useState, useEffect } from "react"
 import { signIn, getSession } from "next-auth/react"
@@ -35,7 +35,7 @@ export default function RegisterPage() {
     })
   }, [router])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (password !== confirmPassword) {

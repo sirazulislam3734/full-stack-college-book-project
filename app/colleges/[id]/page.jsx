@@ -222,8 +222,8 @@ const collegeDetails = {
 
 export default function CollegeDetailPage() {
   const params = useParams()
-  const collegeId = Number.parseInt(params.id as string)
-  const college = collegeDetails[collegeId as keyof typeof collegeDetails]
+  const collegeId = Number.parseInt(params.id)
+  const college = collegeDetails[collegeId]
   const [selectedImage, setSelectedImage] = useState(0)
   const { user } = useAuth()
   const { toast } = useToast()

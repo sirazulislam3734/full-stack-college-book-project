@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import  React from "react"
 
 import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
@@ -59,7 +59,7 @@ export default function AdmissionPage() {
     candidatePhone: "",
     address: "",
     dateOfBirth: "",
-    image: null as File | null,
+    image: null ,
   })
   const [loading, setLoading] = useState(false)
   const { data: session, status } = useSession()
@@ -98,14 +98,14 @@ export default function AdmissionPage() {
     }
   }, [session, status, collegeIdParam, selectedCollege, toast, router])
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field, value) => {
     setFormData((prev) => ({
       ...prev,
       [field]: value,
     }))
   }
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = (e) => {
     const file = e.target.files?.[0]
     if (file) {
       setFormData((prev) => ({
@@ -115,7 +115,7 @@ export default function AdmissionPage() {
     }
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (!selectedCollege) {

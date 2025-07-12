@@ -13,22 +13,8 @@ import { useToast } from "@/hooks/use-toast"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 
-interface Application {
-  candidateName: string
-  subject: string
-  candidateEmail: string
-  candidatePhone: string
-  address: string
-  dateOfBirth: string
-  collegeId: string
-  collegeName: string
-  userId: string
-  applicationDate: string
-  status: string
-}
-
 export default function MyCollegePage() {
-  const [applications, setApplications] = useState<Application[]>([])
+  const [applications, setApplications] = useState([])
   const [reviewText, setReviewText] = useState("")
   const [rating, setRating] = useState(0)
   const [loading, setLoading] = useState(false)
@@ -49,11 +35,11 @@ export default function MyCollegePage() {
 
     // Load user's applications from localStorage
     const storedApplications = JSON.parse(localStorage.getItem("applications") || "[]")
-    const userApplications = storedApplications.filter((app: Application) => app.userId === user.id)
+    const userApplications = storedApplications.filter((app) => app.userId === user.id)
     setApplications(userApplications)
   }, [user, router, toast])
 
-  const handleReviewSubmit = async (collegeId: string, collegeName: string) => {
+  const handleReviewSubmit = async (collegeId, collegeName) => {
     if (!reviewText.trim() || rating === 0) {
       toast({
         title: "Incomplete Review",
