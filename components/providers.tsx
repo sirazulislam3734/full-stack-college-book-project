@@ -2,17 +2,15 @@
 
 import type React from "react"
 
-import { AuthProvider } from "./auth-provider"
-import { ThemeProvider } from "./theme-provider"
-import { Toaster } from "@/components/ui/toaster"
+import { SessionProvider } from "next-auth/react"
+import { ThemeProvider } from "@/components/theme-provider"
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-      <AuthProvider>
+    <SessionProvider>
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
         {children}
-        <Toaster />
-      </AuthProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </SessionProvider>
   )
 }
