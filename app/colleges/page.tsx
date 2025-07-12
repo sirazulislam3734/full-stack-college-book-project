@@ -16,7 +16,7 @@ const allColleges = [
   {
     id: 1,
     name: "Harvard University",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.ibb.co/9yKKpQs/harvard.jpg",
     rating: 4.9,
     admissionDate: "2024-03-15",
     researchCount: 1250,
@@ -26,7 +26,7 @@ const allColleges = [
   {
     id: 2,
     name: "Stanford University",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.ibb.co/QXvTMzp/stanford.jpg",
     rating: 4.8,
     admissionDate: "2024-04-01",
     researchCount: 1100,
@@ -36,7 +36,7 @@ const allColleges = [
   {
     id: 3,
     name: "MIT",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.ibb.co/7XzQzKp/mit.jpg",
     rating: 4.9,
     admissionDate: "2024-02-28",
     researchCount: 980,
@@ -46,7 +46,7 @@ const allColleges = [
   {
     id: 4,
     name: "Yale University",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.ibb.co/k8YzQzK/yale.jpg",
     rating: 4.7,
     admissionDate: "2024-03-20",
     researchCount: 850,
@@ -56,7 +56,7 @@ const allColleges = [
   {
     id: 5,
     name: "Princeton University",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.ibb.co/2YzQzKp/princeton.jpg",
     rating: 4.8,
     admissionDate: "2024-04-10",
     researchCount: 720,
@@ -66,7 +66,7 @@ const allColleges = [
   {
     id: 6,
     name: "Columbia University",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.ibb.co/3YzQzKp/columbia.jpg",
     rating: 4.6,
     admissionDate: "2024-03-25",
     researchCount: 950,
@@ -163,6 +163,7 @@ export default function CollegesPage() {
                         width={400}
                         height={250}
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        crossOrigin="anonymous"
                       />
                       <div className="absolute top-4 right-4">
                         <Badge className="bg-yellow-500 text-white">

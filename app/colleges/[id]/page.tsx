@@ -18,9 +18,9 @@ const collegeDetails = {
     id: 1,
     name: "Harvard University",
     images: [
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
+      "https://i.ibb.co/9yKKpQs/harvard.jpg",
+      "https://i.ibb.co/QXvTMzp/stanford.jpg",
+      "https://i.ibb.co/7XzQzKp/mit.jpg",
     ],
     rating: 4.9,
     location: "Cambridge, MA",
@@ -82,7 +82,142 @@ const collegeDetails = {
       },
     ],
   },
-  // Add more college details as needed
+  2: {
+    id: 2,
+    name: "Stanford University",
+    images: [
+      "https://i.ibb.co/QXvTMzp/stanford.jpg",
+      "https://i.ibb.co/9yKKpQs/harvard.jpg",
+      "https://i.ibb.co/7XzQzKp/mit.jpg",
+    ],
+    rating: 4.8,
+    location: "Stanford, CA",
+    admissionDate: "2024-04-01",
+    description:
+      "Stanford University is a private research university in Stanford, California. Known for its academic strength, wealth, and proximity to Silicon Valley, Stanford is one of the world's leading universities.",
+    admissionProcess: [
+      "Submit online application through Common Application",
+      "Provide official transcripts from all schools attended",
+      "Submit standardized test scores (SAT or ACT)",
+      "Write personal essays and supplemental essays",
+      "Obtain letters of recommendation",
+      "Participate in alumni interview (if available)",
+      "Submit application fee or fee waiver",
+    ],
+    events: [
+      {
+        name: "Tech Innovation Summit",
+        date: "2024-04-20",
+        description: "Annual technology and innovation conference",
+      },
+      {
+        name: "Entrepreneurship Week",
+        date: "2024-05-15",
+        description: "Week-long celebration of startup culture",
+      },
+      {
+        name: "Spring Festival",
+        date: "2024-06-05",
+        description: "Campus-wide celebration with music and food",
+      },
+    ],
+    research: [
+      {
+        title: "Computer Science",
+        description: "Cutting-edge research in algorithms and software engineering",
+      },
+      {
+        title: "Engineering Excellence",
+        description: "Innovation in mechanical and electrical engineering",
+      },
+      {
+        title: "Biomedical Research",
+        description: "Advanced medical technology and biotechnology research",
+      },
+    ],
+    sports: [
+      {
+        category: "Team Sports",
+        activities: ["Football", "Basketball", "Baseball", "Soccer", "Volleyball"],
+      },
+      {
+        category: "Individual Sports",
+        activities: ["Tennis", "Swimming", "Track & Field", "Golf", "Gymnastics"],
+      },
+      {
+        category: "Water Sports",
+        activities: ["Rowing", "Sailing", "Water Polo"],
+      },
+    ],
+  },
+  3: {
+    id: 3,
+    name: "MIT",
+    images: [
+      "https://i.ibb.co/7XzQzKp/mit.jpg",
+      "https://i.ibb.co/9yKKpQs/harvard.jpg",
+      "https://i.ibb.co/QXvTMzp/stanford.jpg",
+    ],
+    rating: 4.9,
+    location: "Cambridge, MA",
+    admissionDate: "2024-02-28",
+    description:
+      "The Massachusetts Institute of Technology (MIT) is a private research university in Cambridge, Massachusetts. MIT has played a key role in the development of modern technology and science.",
+    admissionProcess: [
+      "Submit online application through MIT Application",
+      "Provide official transcripts from all schools attended",
+      "Submit standardized test scores (SAT or ACT)",
+      "Write personal essays and supplemental essays",
+      "Obtain letters of recommendation",
+      "Participate in alumni interview",
+      "Submit application fee or fee waiver",
+    ],
+    events: [
+      {
+        name: "Robotics Competition",
+        date: "2024-03-10",
+        description: "Annual robotics competition and showcase",
+      },
+      {
+        name: "Hackathon 2024",
+        date: "2024-04-25",
+        description: "48-hour coding competition and innovation challenge",
+      },
+      {
+        name: "Science Expo",
+        date: "2024-05-30",
+        description: "Exhibition of student research and projects",
+      },
+    ],
+    research: [
+      {
+        title: "Robotics",
+        description: "Advanced robotics and automation research",
+      },
+      {
+        title: "Quantum Computing",
+        description: "Pioneering research in quantum technology",
+      },
+      {
+        title: "Artificial Intelligence",
+        description: "Machine learning and AI algorithm development",
+      },
+    ],
+    sports: [
+      {
+        category: "Team Sports",
+        activities: ["Basketball", "Soccer", "Baseball", "Hockey", "Lacrosse"],
+      },
+      {
+        category: "Individual Sports",
+        activities: ["Tennis", "Swimming", "Track & Field", "Fencing", "Wrestling"],
+      },
+      {
+        category: "Water Sports",
+        activities: ["Rowing", "Sailing", "Cross Country"],
+      },
+    ],
+  },
 }
 
 export default function CollegeDetailPage() {
@@ -154,6 +289,7 @@ export default function CollegeDetailPage() {
                   width={600}
                   height={400}
                   className="w-full h-96 object-cover"
+                  crossOrigin="anonymous"
                 />
               </div>
               <div className="grid grid-cols-3 gap-2">
@@ -171,6 +307,7 @@ export default function CollegeDetailPage() {
                       width={200}
                       height={120}
                       className="w-full h-24 object-cover hover:scale-105 transition-transform"
+                      crossOrigin="anonymous"
                     />
                   </button>
                 ))}

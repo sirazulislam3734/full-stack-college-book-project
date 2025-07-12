@@ -14,12 +14,12 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { useToast } from "@/hooks/use-toast"
 
-// Mock data
+// Mock data with real images
 const colleges = [
   {
     id: 1,
     name: "Harvard University",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.ibb.co/9yKKpQs/harvard.jpg",
     rating: 4.9,
     admissionDate: "2024-03-15",
     events: ["Annual Science Fair", "Cultural Festival", "Sports Meet"],
@@ -30,7 +30,7 @@ const colleges = [
   {
     id: 2,
     name: "Stanford University",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.ibb.co/QXvTMzp/stanford.jpg",
     rating: 4.8,
     admissionDate: "2024-04-01",
     events: ["Tech Innovation Summit", "Entrepreneurship Week"],
@@ -41,7 +41,7 @@ const colleges = [
   {
     id: 3,
     name: "MIT",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.ibb.co/7XzQzKp/mit.jpg",
     rating: 4.9,
     admissionDate: "2024-02-28",
     events: ["Robotics Competition", "Hackathon 2024"],
@@ -52,12 +52,12 @@ const colleges = [
 ]
 
 const galleryImages = [
-  "/placeholder.svg?height=300&width=400",
-  "/placeholder.svg?height=300&width=400",
-  "/placeholder.svg?height=300&width=400",
-  "/placeholder.svg?height=300&width=400",
-  "/placeholder.svg?height=300&width=400",
-  "/placeholder.svg?height=300&width=400",
+  "https://i.ibb.co/9yKKpQs/harvard.jpg",
+  "https://i.ibb.co/QXvTMzp/stanford.jpg",
+  "https://i.ibb.co/7XzQzKp/mit.jpg",
+  "https://i.ibb.co/k8YzQzK/yale.jpg",
+  "https://i.ibb.co/2YzQzKp/princeton.jpg",
+  "https://i.ibb.co/3YzQzKp/columbia.jpg",
 ]
 
 const researchPapers = [
@@ -88,7 +88,7 @@ const reviews = [
     college: "Harvard University",
     rating: 5,
     comment: "Excellent facilities and world-class education. The research opportunities are outstanding!",
-    avatar: "/placeholder.svg?height=40&width=40",
+    avatar: "https://i.ibb.co/QXvTMzp/user1.jpg",
   },
   {
     id: 2,
@@ -96,7 +96,7 @@ const reviews = [
     college: "Stanford University",
     rating: 5,
     comment: "Amazing campus life and innovative programs. The entrepreneurship support is incredible.",
-    avatar: "/placeholder.svg?height=40&width=40",
+    avatar: "https://i.ibb.co/7XzQzKp/user2.jpg",
   },
   {
     id: 3,
@@ -104,7 +104,7 @@ const reviews = [
     college: "MIT",
     rating: 4,
     comment: "Challenging academics with great support system. Perfect for tech enthusiasts!",
-    avatar: "/placeholder.svg?height=40&width=40",
+    avatar: "https://i.ibb.co/k8YzQzK/user3.jpg",
   },
 ]
 
@@ -158,11 +158,12 @@ export default function HomePage() {
             </p>
             <div className="flex justify-center">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="https://i.ibb.co/9yKKpQs/harvard.jpg"
                 alt="College Campus"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-2xl"
+                crossOrigin="anonymous"
               />
             </div>
           </motion.div>
@@ -225,6 +226,7 @@ export default function HomePage() {
                         width={400}
                         height={300}
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        crossOrigin="anonymous"
                       />
                       <div className="absolute top-4 right-4">
                         <Badge className="bg-yellow-500 text-white">
@@ -292,6 +294,7 @@ export default function HomePage() {
                     width={400}
                     height={300}
                     className="w-full h-48 object-cover hover:brightness-110 transition-all duration-300"
+                    crossOrigin="anonymous"
                   />
                 </motion.div>
               ))}
@@ -361,7 +364,7 @@ export default function HomePage() {
                     <CardHeader>
                       <div className="flex items-center space-x-4">
                         <Avatar>
-                          <AvatarImage src={review.avatar || "/placeholder.svg"} />
+                          <AvatarImage src={review.avatar || "/placeholder.svg"} crossOrigin="anonymous" />
                           <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
                         </Avatar>
                         <div>

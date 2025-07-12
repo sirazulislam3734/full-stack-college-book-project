@@ -41,8 +41,10 @@ export default function AdmissionPage() {
   const { toast } = useToast()
   const router = useRouter()
   const searchParams = useSearchParams()
+  const collegeIdParam = searchParams.get("college") // primitive → stable value
 
   useEffect(() => {
+    // Redirect if unauthenticated
     if (!user) {
       toast({
         title: "Login Required",
@@ -53,19 +55,22 @@ export default function AdmissionPage() {
       return
     }
 
-    // Pre-select college if coming from college details page
-    const collegeId = searchParams.get("college")
-    if (collegeId) {
-      setSelectedCollege(collegeId)
+    // Pre-select college (only if not already selected)
+    if (collegeIdParam && collegeIdParam !== selectedCollege) {
+      setSelectedCollege(collegeIdParam)
     }
 
-    // Pre-fill user data
-    setFormData((prev) => ({
-      ...prev,
-      candidateName: user.name || "",
-      candidateEmail: user.email || "",
-    }))
-  }, [user, searchParams, router, toast])
+    // Pre-fill user data (only if it has changed)
+    setFormData((prev) => {
+      const name = user.name || ""
+      const email = user.email || ""
+      if (prev.candidateName === name && prev.candidateEmail === email) {
+        return prev // no change → avoid extra render
+      }
+      return { ...prev, candidateName: name, candidateEmail: email }
+    })
+    // NOTE: we purposely exclude `searchParams` to avoid infinite loop.
+  }, [user, collegeIdParam, selectedCollege, toast, router])
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({
